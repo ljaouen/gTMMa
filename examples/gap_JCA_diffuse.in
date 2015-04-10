@@ -1,0 +1,39 @@
+% Datafile for gTMMa
+%
+% 2005.06.03
+%
+% SAA: 0.76 (assumption of a locally reacting material)
+% alpha_w: 0.75 (assumption of a locally reacting material)
+
+
+<fluid>
+    T  20 (Celsius degrees)
+    P  101300 (Pa)
+</fluid>
+
+<layers>
+  <ridig_impervious_wall>
+
+  <air_gap>
+  L 0.200 (m)
+  </air_gap>
+
+  <JCA_material>
+    alpha  2.3
+    phi  0.84
+    sigma  72000     (N.s.m-4)
+    lambda  50e-06   (m)
+    lambda_p 540e-06 (m)
+    L  0.02 (m)
+  </JCA_material>
+</layers>
+
+<spectrum>
+    min    10.0 (Hz)
+    max  6000.0 (Hz)
+    step   10.0 (Hz)
+</spectrum>
+
+<conditions>
+  diffuse_field
+</conditions>

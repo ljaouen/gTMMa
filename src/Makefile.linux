@@ -1,0 +1,19 @@
+.SUFFIXES: .c .o
+
+SRC = complex.c misc_operations.c general_acoustics.c \
+	motionless_skel_models.c parser.c gtmma.c
+
+OBJ = ${SRC:.c=.o}
+
+CC  = gcc
+OPT = -O2 -Wall -ansi
+
+
+gtmma: $(OBJ)
+	$(CC) $(OBJ) -g -lm -o gtmma
+
+.c.o: $<
+	$(CC) $(OPT) -c -o $@ $<
+
+clean:
+	rm -f $(OBJ)

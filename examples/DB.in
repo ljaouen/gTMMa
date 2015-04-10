@@ -1,0 +1,26 @@
+% Datafile for gTMMa
+%
+% 2005.06.03
+
+<fluid>
+    T  20 (Celsius degrees)
+    P  101300 (Pa)
+</fluid>
+
+<layers>
+  <ridig_impervious_wall>
+  <DB_material>
+    sigma  15300     (N.s.m-4)
+    L  0.023 (m)
+  </DB_material>
+</layers>
+
+<spectrum>
+    min    10.0 (Hz)
+    max  4000.0 (Hz)
+    step   10.0 (Hz)
+</spectrum>
+
+<conditions>
+  incidence 0.0 (deg.)
+</conditions>

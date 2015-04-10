@@ -1,0 +1,42 @@
+gTMMa (very) quick installation guide:
+
+**************************************
+	TABLE OF CONTENTS
+
+1. System requirements
+2. Installation
+  o GNU/Linux, Un*x
+  o Windows
+3. Pre-compiled versions
+
+**************************************
+	1. SYSTEM REQUIREMENTS
+
+o An ANSI C library,
+o a standard math library
+  (with functions pow and sqrt for double precision numbers).
+
+**************************************
+	2. INSTALLATION
+
+o GNU/Linux, Un*x:
+	Uncompress gtmma package,
+	Change directory to gtmma/src,
+	Type make -f Makefile.linux and pray or edit Makefile.linux.
+
+o Windows
+  You need a C compiler to build the binary file gtmma.exe. I use
+MinGW-make under the MinGW environnement (cf.  http://www.mingw.org/ ).
+
+	Uncompress gtmma package,
+	Lunch a dos window,
+	Change directory to gtmma/src,
+	Type mingw32-make -f Makefile.windows
+
+
+**************************************
+	3. PRE-COMPILED VERSIONS
+	
+	The archive contains two pre-compiled versions in directory
+gtmma/bin. One for GNU/Linux i386 (kernel 2.4, libc6) and another one
+for Windows XP. 

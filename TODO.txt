@@ -1,0 +1,4 @@
+o Check valgrind-memcheck report 
+o Find bugs
+o Add a "real" diffuse field computation
+o Add poro-elastic models

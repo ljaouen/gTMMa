@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+	<title>gTMMa</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="A C implementation of the Transfer Matrix Method (TMM) in Acoustics. It features various models for the prediction of sound absorption of acoustical porous materials.">
+ 	<meta name="keywords" content="TMM,matrix,acoustics,absorption,Delany,Bazley,Johnson,Champoux,Allard,Lafarge,unix,linux,windows,BSD">
+	<meta name="author" content="Luc Jaouen">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<link rel="stylesheet" href="./inuit4.min.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="./fonts/Calligraffiti/stylesheet.css" type="text/css">
+  	<link rel="stylesheet" href="./my.css" type="text/css" media="screen, projection">
+</head>
+
+<body>
+
+<div class="gw">
+	<div class="g one-third lap-one-whole palm-one-whole black stripes table-cell_g">
+		<div class="gw">
+			<div class="g one-whole lap-one-half palm-one-whole">
+				<p class="paddingtop"><span class="gtmma_heading">g[TMM]a</span></p>
+			</div>
+			<div class="g one-whole lap-one-half palm-one-whole">
+				<p class="italic">An open-source implementation of the Transfer Matrix Method in the field of acoustics.<br><br><a href="http://github.com/ljaouen/gtmma/">Fork it</a>
+or contact me if you have comments or suggestions.</p>
+			</div>
+		</div>
+	</div>
+	<div class="g two-thirds one-third lap-one-whole palm-one-whole white table-cell_g">
+
+<p class="paddingtop">
+gTMMa allows to predict the sound absorption properties of porous materials
+such as polymer foams or mineral wools.<br>
+gTMMa is written in ANSI C and is designed to run under multiple OS.
+</p>
+
+
+<h2>License</h2>
+<p>
+This code is distributed under the terms of the
+new BSD License.<br><br>
+ 
+Copyleft Luc Jaouen.<br><br>
+ 
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:</p>
+<ul>
+  <li> Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.</li>  
+  <li> Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the following
+  disclaimer in the documentation and/or other materials provided
+  with the distribution.</li>
+  <li> The names of the authors may not be used to endorse or promote products derived
+  from this software without specific prior written permission.</li>
+</ul>
+
+<h2>Installing gTMMa</h2>
+<p>
+  Unzip gtmma.zip.<br>
+  4 sub-directories should be created:<br>
+  <span style="color: #0066cc;">doc</span> contains the documentation of gTMMa,<br>
+  <span style="color: #0066cc;">examples</span> contains some input files (.in),<br>
+  <span style="color: #0066cc;">bin</span> contains pre-compiled versions of gTMMa (a Windows XP one and a
+  Linux kernel 2.4/libc6 one).<br>
+  <span style="color: #0066cc;">src</span> contains the ANSI C sources of gTMMa.
+  </p>
+
+<h2>Using gTMMa</h2>
+<p>
+  At this time, only a console version of gTMMa is available: you need
+  to open a console to lunch gTMMa (button start/execute and type &quot;cmd&quot; for
+  Windows).<br>
+  Change directory to the directory where the binary &quot;gtmma&quot; (lower
+  case) is or add this directory to your path.<br>
+  Simply type &quot;gtmma path_to_an_input_file&quot; to compute the
+  response for an input file. (example: gtmma JCA_gap_JCA.in).
+  </p>
+
+<h2>Input file example</h2>
+<p>
+  Each input file (identified by a &quot;.in&quot; extension) must
+  contain 4 tags: 
+  a <span style="color: #0066cc;">fluid</span>, 
+  a <span style="color: #0066cc;">layers</span>, 
+  a <span style="color: #0066cc;">spectrum</span> 
+  and a <span style="color: #0066cc;">conditions</span> one.
+</p>
+
+<pre>
+% Datafile for gTMMa <span style="color: #0066cc;">Headers/comments</span>
+%
+% 2004.10.09
+
+&lt;fluid&gt;
+    T  20 <span style="color: #0066cc;">Room temperature T in Celsius degrees</span>
+    P  101300 <span style="color: #0066cc;">Atmospheric static pressure P in Pascal</span>
+&lt;/fluid&gt;
+
+&lt;layers&gt;
+  &lt;ridig_impervious_wall&gt; <span style="color: #0066cc;">Required in &quot;absorption mode&quot;</span>
+  &lt;JCA_material&gt; <span style="color: #0066cc;">Beginning of the 1st layer tag (Johnson Champoux Allard mat.)</span>
+    alpha  2.1       <span style="color: #0066cc;">High frequency limit of the tortuosity</span>
+    phi  0.80        <span style="color: #0066cc;">Open porosity</span>
+    sigma  40000     <span style="color: #0066cc;">Static air flow resistivity in N.s.m-4</span>
+    lambda  125e-06  <span style="color: #0066cc;">Viscoous characteristic length in meters</span>
+    lambda_p 350e-06 <span style="color: #0066cc;">Thermal characteristic length in meters</span>
+    L  0.01          <span style="color: #0066cc;">Layer thickness in meters</span>
+  &lt;/JCA_material&gt;    <span style="color: #0066cc;">End of the layer tag</span>
+
+  &lt;air_gap&gt; <span style="color: #0066cc;">Beginning of the 2nd layer tag (air gap/plenum)</span>
+  L 0.02    <span style="color: #0066cc;">Layer thickness in meters</span>
+  &lt;/air_gap&gt;
+ 
+  &lt;JCA_material&gt; <span style="color: #0066cc;">3rd layer: Johnson Champoux Allard material</span>
+    alpha  1.6
+    phi 0.82
+    sigma  20000        (N.s.m-4)
+    lambda  80e-06      (m)
+    lambda_p  160e-06   (m)
+    L  0.01             (m)
+  &lt;/JCA_material&gt;
+&lt;/layers&gt;
+
+&lt;spectrum&gt;
+    min    10.0 <span style="color: #0066cc;">Lower frequency in Hertz</span>
+    max  4000.0 <span style="color: #0066cc;">Upper frequency in Hertz</span>
+    step   10.0 <span style="color: #0066cc;">Frequency step in Hertz</span>
+&lt;/spectrum&gt;
+
+&lt;conditions&gt;
+  incidence 0.0   <span style="color: #0066cc;">Incidence angle in radian (here: normal incidence)</span>
+&lt;/conditions&gt;
+<!--  diffuse_field 0 <span style="color: #0066cc;">Incidence angle is over-written if &quot;diffuse_field&quot; is present</span> -->
+</pre>
+
+
+<h2>Material tags allowed</h2>
+<p>
+  <span style="color: #0066cc;">&lt;air_gap&gt;</span>: an air gap/plenum. The only parameter required is the layer thickness L.<br>
+  <span style="color: #0066cc;">&lt;DB_material&gt;</span>: <a href="http://apmr.matelys.com/PropagationModels/MotionlessSkeleton/DelanyBazleyModel.html">Delany-Bazley model</a>. Parameters are the static air flow resistivity sigma (in N.s.m-4) and the layer thickness L.<br>
+    <span style="color: #0066cc;">&lt;GP_material&gt;</span>: Garai-Pompoli model. Parameters are the static air flow resistivity sigma (in N.s.m-4) and the layer thickness L.<br>
+  <span style="color: #0066cc;">&lt;JCA_material&gt;</span>: <a href="http://apmr.matelys.com/PropagationModels/MotionlessSkeleton/JohnsonChampouxAllardModel.html">Johnson-Champoux-Allard model</a>. Parameters are the static air flow resistivity sigma (in N.s.m-4), the open porosity phi, the high frequency limit of the tortuosity alpha, the viscous and thermal characteristic lengths (in meters) lambda and lambda_p respectively and the layer thickness L.<br>
+  <span style="color: #0066cc;">&lt;JL_material&gt;</span>: <a href="http://apmr.matelys.com/PropagationModels/MotionlessSkeleton/JohnsonChampouxAllardLafargeModel.html">Johnson-Champoux-Allard-Lafarge model</a>. Parameters are the static air flow resistivity sigma (in N.s.m-4), the open porosity phi, the high frequency limit of the tortuosity alpha, the viscous and thermal characteristic lengths (in meters) lambda and lambda_p respectively, the thermal permeability k_p_0 (in m^2) and finally the layer thickness L.<br>
+  </p>
+
+
+
+
+
+	</div>
+</div>
+
+
+</body>
+</html>
+

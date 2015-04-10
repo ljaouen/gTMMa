@@ -1,0 +1,109 @@
+/*****
+ ***** Body, a...
+ *****
+ *****/
+
+
+body {
+ 	color: #333333;
+ 	font-family: Georgia, serif;
+    background: #ffffff;
+}
+
+h2 {
+	padding-left: 10px;
+	color: #000000; 
+}
+
+
+p {
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+pre {
+	padding-left: 10px;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.paddingtop {
+	padding-top: 3em;
+}
+
+.margintop {
+	margin-top: 3em;
+}
+
+a { 
+        color: #3399CC;
+        background-color: transparent;
+        text-decoration: none;   
+}
+a:hover { 
+        color: #3399CC; /* #ff9933; */
+        text-decoration: underline;
+}
+
+
+.whiteborder {
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomright: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border: 5px solid #ffffff;
+}
+
+.white {
+}
+
+
+
+.black {
+  	background: #333333;
+  	color: white;
+  	box-shadow: 0 0 3px black;
+}
+
+.highlight {
+	font: normal 120% "CalligraffitiRegular", sans-serif;
+}
+
+
+.gtmma_heading {
+	font: normal 180% Arial, sans-serif; 
+	letter-spacing: 0.05em; 
+	text-shadow: 1px 1px 3px #666666, -1px -1px 3px #999999, 1px 1px #666666, -1px -1px #333333;
+}
+
+@media only screen and (min-width: 1024px) {
+
+.table_g {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.black {
+	position: fixed;
+	left: 0;
+	top: 0;
+  	min-height: 100%;
+}
+
+.white {
+	  position: relative;
+	  left: 33.333%;
+}
+
+}
+
+/* Stripes from Lea Verrou (cf. http://lea.verrou.me ) */
+.stripes {
+	background-color: #333333;
+}

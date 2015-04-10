@@ -1,0 +1,43 @@
+% Datafile for gTMMa
+%
+% 2004.10.09
+
+<fluid>
+    T  20 (Celsius degrees)
+    P  101300 (Pa)
+</fluid>
+
+<layers>
+  <ridig_impervious_wall>
+  <JCA_material>
+    alpha  2.1
+    phi  0.80
+    sigma  40000     (N.s.m-4)
+    lambda  125e-06   (m)
+    lambda_p 350e-06 (m)
+    L  0.01 (m)
+  </JCA_material>
+
+  <air_gap>
+  L 0.02 (m)
+  </air_gap>
+ 
+  <JCA_material>
+    alpha  1.6
+    phi 0.82
+    sigma  20000     (N.s.m-4)
+    lambda  80e-06 (m)
+    lambda_p  160e-06   (m)
+    L  0.01 (m)
+  </JCA_material>	
+</layers>
+
+<spectrum>
+    min    10.0 (Hz)
+    max  4000.0 (Hz)
+    step   10.0 (Hz)
+</spectrum>
+
+<conditions>
+  incidence 0.0
+</conditions>
