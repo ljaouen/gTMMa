@@ -31,6 +31,7 @@ Input file example
 
 Each input file (identified by a ".in" extension) must contain 4 tags: a fluid, a layers, a spectrum and a conditions one.
 
+```xml
 % Datafile for gTMMa Headers/comments
 %
 % 2004.10.09
@@ -74,12 +75,14 @@ Each input file (identified by a ".in" extension) must contain 4 tags: a fluid, 
 <conditions>
   incidence 0.0   Incidence angle in radian (here: normal incidence)
 </conditions>
+```
 
 # Material tags allowed
 
+```xml
 <air_gap>: an air gap/plenum. The only parameter required is the layer thickness L.
 <DB_material>: Delany-Bazley model. Parameters are the static air flow resistivity sigma (in N.s.m-4) and the layer thickness L.
 <GP_material>: Garai-Pompoli model. Parameters are the static air flow resistivity sigma (in N.s.m-4) and the layer thickness L.
 <JCA_material>: Johnson-Champoux-Allard model. Parameters are the static air flow resistivity sigma (in N.s.m-4), the open porosity phi, the high frequency limit of the tortuosity alpha, the viscous and thermal characteristic lengths (in meters) lambda and lambda_p respectively and the layer thickness L.
 <JL_material>: Johnson-Champoux-Allard-Lafarge model. Parameters are the static air flow resistivity sigma (in N.s.m-4), the open porosity phi, the high frequency limit of the tortuosity alpha, the viscous and thermal characteristic lengths (in meters) lambda and lambda_p respectively, the thermal permeability k_p_0 (in m^2) and finally the layer thickness L.
-
+```
